@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "netflix": "apps/netflix",
+    "netflix-e2e": "apps/netflix-e2e",
+    "netflix-ui": "libs/netflix-ui",
+    "netflix-ui-e2e": "apps/netflix-ui-e2e"
+  }
+}
