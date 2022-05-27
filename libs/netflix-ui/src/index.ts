@@ -1,2 +1,9 @@
-export * from './lib/netflix-ui';
-export {default as Button} from './lib/Button/Button';
+export {default as theme} from './style'
+export * from './lib/DropDown'
+export * from './lib/Image'
+export * from './lib/Video'
+export * from './lib/Background'
+export * from './lib/Button'
+export * from './lib/Input'
+export * from './lib/Icon'
+export * from './utils'

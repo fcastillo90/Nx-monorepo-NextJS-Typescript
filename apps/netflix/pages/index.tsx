@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button } from '@fcastillo90/netflix-ui'
+import { ButtonGroup } from '@fcastillo90/netflix-ui'
 
 const StyledPage = styled.div`
   .page {
@@ -14,7 +14,7 @@ export function Index() {
    */
   return (
     <StyledPage>
-      <Button>test</Button>
+      <ButtonGroup />
       <div className="wrapper">
         <div className="container">
           <div id="welcome">

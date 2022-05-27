@@ -15,7 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fcastillo90/netflix-ui": ["libs/netflix-ui/src/index.ts"]
+      "@/*": ["apps/netflix/*"],
+      "@fcastillo90/constants": ["libs/constants/src/index.ts"],
+      "@fcastillo90/mock": ["libs/mock/src/index.ts"],
+      "@fcastillo90/netflix-ui": ["libs/netflix-ui/src/index.ts"],
+      "@fcastillo90/types": ["libs/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
