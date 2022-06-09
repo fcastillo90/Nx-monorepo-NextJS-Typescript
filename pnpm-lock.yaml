@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@babel/core': 7.12.13
+  '@babel/preset-react': ^7.17.12
   '@babel/preset-typescript': 7.12.13
   '@emotion/babel-plugin': 11.9.2
   '@emotion/react': 11.9.0
@@ -64,6 +65,7 @@ specifiers:
   url-loader: ^3.0.0
 
 dependencies:
+  '@babel/preset-react': 7.17.12_@babel+core@7.12.13
   '@emotion/react': 11.9.0_4l65rmx5uepr75ptr3d56ivz2i
   '@emotion/server': 11.4.0
   '@emotion/styled': 11.8.1_kzk6p7zfyz7mwpfc5nyj266oi4
@@ -1344,7 +1346,6 @@ packages:
     dependencies:
       '@babel/core': 7.12.13
       '@babel/helper-plugin-utils': 7.17.12
-    dev: true
 
   /@babel/plugin-transform-react-display-name/7.16.7_@babel+core@7.18.2:
     resolution: {integrity: sha512-qgIg8BcZgd0G/Cz916D5+9kqX0c7nPZyXaP8R2tLNN5tkyIZdG5fEwBrxwplzSnjC1jvQmyMNVwUCZPcbGY7Pg==}
@@ -1363,7 +1364,6 @@ packages:
     dependencies:
       '@babel/core': 7.12.13
       '@babel/plugin-transform-react-jsx': 7.17.12_@babel+core@7.12.13
-    dev: true
 
   /@babel/plugin-transform-react-jsx-development/7.16.7_@babel+core@7.18.2:
     resolution: {integrity: sha512-RMvQWvpla+xy6MlBpPlrKZCMRs2AGiHOGHY3xRwl0pEeim348dDyxeH4xBsMPbIMhujeq7ihE702eM2Ew0Wo+A==}
@@ -1386,7 +1386,6 @@ packages:
       '@babel/helper-plugin-utils': 7.17.12
       '@babel/plugin-syntax-jsx': 7.17.12_@babel+core@7.12.13
       '@babel/types': 7.18.2
-    dev: true
 
   /@babel/plugin-transform-react-jsx/7.17.12_@babel+core@7.18.2:
     resolution: {integrity: sha512-Lcaw8bxd1DKht3thfD4A12dqo1X16he1Lm8rIv8sTwjAYNInRS1qHa9aJoqvzpscItXvftKDCfaEQzwoVyXpEQ==}
@@ -1410,7 +1409,6 @@ packages:
       '@babel/core': 7.12.13
       '@babel/helper-annotate-as-pure': 7.16.7
       '@babel/helper-plugin-utils': 7.17.12
-    dev: true
 
   /@babel/plugin-transform-react-pure-annotations/7.18.0_@babel+core@7.18.2:
     resolution: {integrity: sha512-6+0IK6ouvqDn9bmEG7mEyF/pwlJXVj5lwydybpyyH3D0A7Hftk+NCTdYjnLNZksn261xaOV5ksmp20pQEmc2RQ==}
@@ -1671,7 +1669,6 @@ packages:
       '@babel/plugin-transform-react-jsx': 7.17.12_@babel+core@7.12.13
       '@babel/plugin-transform-react-jsx-development': 7.16.7_@babel+core@7.12.13
       '@babel/plugin-transform-react-pure-annotations': 7.18.0_@babel+core@7.12.13
-    dev: true
 
   /@babel/preset-react/7.17.12_@babel+core@7.18.2:
     resolution: {integrity: sha512-h5U+rwreXtZaRBEQhW1hOJLMq8XNJBQ/9oymXiCXTuT/0uOwpbT0gUt+sXeOqoXBgNuUKI7TaObVwoEyWkpFgA==}
@@ -10795,7 +10792,7 @@ packages:
     engines: {node: '>= 4'}
 
   /image-size/0.5.5:
-    resolution: {integrity: sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=}
+    resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
     engines: {node: '>=0.10.0'}
     hasBin: true
     requiresBuild: true

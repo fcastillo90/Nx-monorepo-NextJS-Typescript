@@ -20,11 +20,11 @@ const useVideoHook = (): [MutableRefObject<any>, MutableRefObject<any>, (otherPl
     if (playerRef?.current) playerRef.current.pauseVideo()
   }
 
-  const handlePlay = (otherVideoPlaying: boolean = false) => {
+  const handlePlay = (otherVideoPlaying = false) => {
     setIsOtherPlaying(otherVideoPlaying)
     onPlay()
   }
-  const handlePause = (otherVideoPlaying: boolean = false) => {
+  const handlePause = (otherVideoPlaying = false) => {
     setIsOtherPlaying(otherVideoPlaying)
     onPause()
   }

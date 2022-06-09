@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { useGetMovieGenreListQuery, getMovieGenreList, getRunningOperationPromises as movieGetRunningOperationPromises } from '@/store/services/ApiMovieSlice';
 import { useGetSerieGenreListQuery, getSerieGenreList, getRunningOperationPromises as serieGetRunningOperationPromises } from '@/store/services/ApiSerieSlice';
 import { useRouter } from 'next/router';
+import { NavBar } from '@/components'
 
 // Server side Api calls
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -36,8 +37,10 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <main className="app">
         <ThemeProvider theme={theme}>
+          <NavBar />
           <CssBaseline />
           <Component {...pageProps} />
+          <div id="portal" />
         </ThemeProvider>
       </main>
     </>

@@ -1,5 +1,6 @@
 import { GenreList, MovieDetail, MovieList, GetVideos } from '@fcastillo90/types'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { HYDRATE } from 'next-redux-wrapper'
 import prepareHeaders from '../apiPrepareHeaders'
 
 // Define a service using a base URL and expected endpoints
@@ -9,6 +10,11 @@ export const movieApi = createApi({
     baseUrl: process.env.NX_THEMOVIEDB_API_URL,
     prepareHeaders
   }),
+  extractRehydrationInfo(action, { reducerPath }) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath]
+    }
+  },
   endpoints: (builder) => ({
     getMovieGenreList: builder.query<GenreList, null>({
       query: () => `/genre/movie/list`,

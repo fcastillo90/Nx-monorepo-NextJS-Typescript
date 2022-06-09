@@ -1,7 +1,11 @@
 import { NAV_BAR_HEIGHT, NAV_BAR_PAGES } from "@fcastillo90/constants"
+import Link from "next/link"
+import { useRouter } from "next/router";
 // import { NavLink } from "react-router-dom"
 
 const LinkList = () => {
+  const {pathname} = useRouter();
+  
   return (
     <ul 
       style={{
@@ -22,22 +26,23 @@ const LinkList = () => {
             fontSize: '0.85rem'
           }}
         >
-          {/* <NavLink 
-            to={page.path} 
-            style={({isActive}) => (
+          <Link 
+            href={page.path} 
+          >
+            <a 
+            style={
               {
                 textDecoration: 'none', 
                 color: '#e5e5e5', 
-                ...isActive && {
+                ...pathname === page.path && {
                   color: 'white',
                   fontWeight: 700
                 }
               }
-            )}
-            end
-          > */}
-            {page.label}
-          {/* </NavLink> */}
+            }>
+              {page.label}
+            </a>
+          </Link>
         </li>
       ))}
     </ul>)

@@ -1,8 +1,8 @@
 import React from 'react'
 import {render, screen} from '@testing-library/react'
-import DataRow from './index'
-import { CategoryType, MovieList } from '@/types'
-import * as moviePopular from '@/mocks/moviePopular.json'
+import DataRow from './DataRow'
+import { CategoryType } from '@fcastillo90/types'
+import { moviePopular } from '@fcastillo90/mock'
 
 describe('DataRow', () => {
   it('Should display DataRow', () => {

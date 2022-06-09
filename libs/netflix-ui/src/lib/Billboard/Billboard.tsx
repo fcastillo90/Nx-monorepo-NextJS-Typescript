@@ -1,32 +1,27 @@
 import { Button, Container, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import NetflixLogo from '@/assets/icon.png'
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { GradientBottom, YoutubeEmbed, getImgUrl, getHeight16by9 } from '@fcastillo90/netflix-ui'
-import { useGetMovieVideosQuery } from "@/store/services/ApiMovieSlice";
+import { GradientBottom, YoutubeEmbed, getImgUrl, getHeight16by9, useVideoHook } from '@fcastillo90/netflix-ui'
 import useWindowDimensions from "@/hooks/useWindowDimensions";
-import { useGetSerieVideosQuery } from "@/store/services/ApiSerieSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store";
-import useVideoHook from "@/hooks/useVideoHook";
 import { useEffect } from "react";
-import { openModal } from "@/store/features/modalSlice";
-import { CategoryType } from "@fcastillo90/types";
-// import { useNavigate } from "react-router-dom";
+import { CategoryType, Video } from "@fcastillo90/types";
+// import { useGetSerieVideosQuery } from "@/store/services/ApiSerieSlice";
+// import { useGetMovieVideosQuery } from "@/store/services/ApiMovieSlice";
 
-interface BillboardProps {
+export interface BillboardProps {
   category: CategoryType;
+  handleMoreInfo: (id: number, category: CategoryType) => void;
   id: number;
-  title: string;
   image: string;
+  isModalOpen: boolean;
   overview: string;
+  title: string;
+  videoData: Video[];
 }
 
-const Billboard = (props: BillboardProps) => {
-  const dispatch = useDispatch()
-  // const navigate = useNavigate()
-  const { category, id, title, image, overview } = props;
-  const isOpen = useSelector((state: RootState) => state.modal.isOpen)
+export const Billboard = (props: BillboardProps) => {
+  const { videoData, category, id, title, image, overview, isModalOpen, handleMoreInfo } = props;
+  // const isModalOpen = useSelector((state: RootState) => state.modal.isOpen)
   const [playerRef, containerRef, handlePlay, handlePause] = useVideoHook();
   const theme = useTheme();
   const { width } = useWindowDimensions()
@@ -34,29 +29,28 @@ const Billboard = (props: BillboardProps) => {
   
   const height = isViewMdUp ? width * 0.5625 : width * 0.4
 
-  const getData = () => {
-    if (category === CategoryType.MOVIE) return useGetMovieVideosQuery(id)
-    return useGetSerieVideosQuery(id)
-  }
+  // const getData = () => {
+  //   if (category === CategoryType.MOVIE) return useGetMovieVideosQuery(id)
+  //   return useGetSerieVideosQuery(id)
+  // }
   
-  const handleMoreInfo = () => {
-    dispatch(openModal({
-      id,
-      category,
-    }))
-  }
+  // const handleMoreInfo = () => {
+  //   dispatch(openModal({
+  //     id,
+  //     category,
+  //   }))
+  // }
 
   const handleWatch = () => {
     // navigate(`/watch/${category[0]}/${id}`)
   }
 
-  const { data } = getData()
-  const video = data?.results.find((result) => result.site === 'YouTube') ?? { key: '' }
+  const video = videoData?.find((result) => result.site === 'YouTube')
 
   useEffect(() => {
-    if (isOpen) handlePause(true)
+    if (isModalOpen) handlePause(true)
     else handlePlay(false)
-  }, [isOpen])
+  }, [isModalOpen])
   return (
     <>
       <div 
@@ -71,7 +65,7 @@ const Billboard = (props: BillboardProps) => {
         }}
       >
         <GradientBottom />
-        {video.key &&
+        {video && video.key &&
           <div 
             data-testid="billboard-video-container"
             ref={containerRef}
@@ -85,14 +79,14 @@ const Billboard = (props: BillboardProps) => {
             />
           </div>
         }
-        <img
+        {image && <img
           data-testid="billboard-img"
           src={getImgUrl(image, 'original')}
           alt={title}
           style={{
             width: '100%'
           }}
-        />
+        />}
       </div>
       <Container
         data-testid="billboard-info-container"
@@ -162,7 +156,7 @@ const Billboard = (props: BillboardProps) => {
             </Button>
             <Button
               data-testid="billboard-info-button-more-info"
-              onClick={handleMoreInfo}
+              onClick={() => handleMoreInfo(id, category)}
               variant="contained"
               style={{
                 backgroundColor: "rgba(255,255,255,0.5)",

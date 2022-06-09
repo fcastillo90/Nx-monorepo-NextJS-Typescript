@@ -6,5 +6,5 @@
   }
 
   export const getHeight16by9 = (width: number) => {
-    return width * 9 / 16;
+    return Math.round(width * 9 / 16);
   }
